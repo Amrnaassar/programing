@@ -1,0 +1,32 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+
+using namespace std;
+
+int main()
+{
+	int a1, a2, a3, b1, b2, b3, sump = 0, summ = 0, c1, c2, n;
+
+	cin >> a1 >> a2 >> a3 >> b1 >> b2 >> b3 >> n;
+
+	sump = a1 + a2 + a3;
+	summ = b1 + b2 + b3;
+
+	c1 = sump / 5;
+
+	if (sump % 5 != 0)
+		c1++;
+
+	c2 = summ / 10;
+
+	if (summ % 10 != 0)
+		c2++;
+	
+	if (n >= c1 + c2)
+		cout << "YES" << endl;
+	else
+		cout << "NO" << endl;
+
+	//system("pause");
+}
