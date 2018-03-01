@@ -1,0 +1,40 @@
+#include <iostream>
+#include <algorithm>
+#include <string>
+using namespace std;
+
+int main()
+{
+	int t;
+	string s;
+
+	cin >> t;
+
+	while (t--)
+	{
+		cin >> s;
+		int min = 10000000, arr[26]{ 0 };
+	
+		for (int i = 0; i < s.size(); i++)
+		{
+			arr[s[i] - 'A']++;
+
+		}
+
+		arr[0] /= 3; arr[17] /= 2;
+		for (int i = 0; i < 26; i++)
+		{
+		
+			if (i == 12 || i == 0 || i == 17 || i == 6 || i == 8 || i == 19)
+			{
+				if (arr[i] < min)
+					min = arr[i];
+			}
+
+		}
+
+		cout << min << endl;
+	}
+
+	return 0;
+}
