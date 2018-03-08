@@ -1,0 +1,78 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <cmath>
+#include <sstream>
+#include <set>
+#include <map>
+#include <queue>
+#include <deque>
+#include <stack>
+#include <vector>
+#include <iomanip>
+using namespace std;
+
+int main()
+{
+	std::ios_base::sync_with_stdio(0);
+	cin.tie(NULL);
+	cout.tie(NULL);
+
+	int n;
+	while (cin >> n && n)
+	{
+		int arr[101][101],r,c,sum=0,cr=0,cc=0;
+
+		for (int i = 0; i < n; i++)
+		{
+			for (int j = 0; j < n; j++)
+			{
+				cin >> arr[i][j];
+
+			}
+		}
+
+		for (int i = 0; i < n; i++)
+		{
+			sum = 0;
+			for (int j = 0; j < n; j++)
+			{
+				sum += arr[i][j];
+			}
+			if (sum % 2 != 0)
+			{
+				cr++;
+				r = i;
+			}
+		}
+
+		sum = 0;
+
+		for (int i = 0; i < n; i++)
+		{
+			sum = 0;
+			for (int j = 0; j < n; j++)
+			{
+				sum += arr[j][i];
+
+			}
+
+			if (sum % 2 != 0)
+			{
+				cc++;
+				c = i;
+			}
+		}
+
+		if (cr == 0 && cc == 0)
+			cout << "OK" << "\n";
+		else if (cr == 1 && cc == 1)
+			cout << "Change bit (" << r + 1 << "," << c + 1 << ")" << "\n";
+		else
+			cout << "Corrupt" << "\n";
+
+	}
+
+	//system("pause");
+	return 0;
+}
