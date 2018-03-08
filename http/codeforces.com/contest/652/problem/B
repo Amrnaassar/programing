@@ -1,0 +1,53 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <cmath>
+#include <sstream>
+#include <set>
+#include <map>
+#include <queue>
+#include <deque>
+#include <stack>
+#include <vector>
+#include <iomanip>
+using namespace std;
+
+int main()
+{
+	std::ios_base::sync_with_stdio(0);
+	cin.tie(NULL);
+	cout.tie(NULL);
+
+	int n, c1 = 0, c2 = 0 ;
+	
+	cin >> n;
+	vector< int >v(n);
+
+	for (int j = 0; j < n; j++)
+	{
+		cin >> v[j];
+	}
+
+	sort(v.begin(),v.end());
+	
+	c1 = 0; c2 = n - 1;
+
+	for (int i = 0; c1 <= c2; i++)
+	{
+		if (i % 2 == 0)
+		{
+			cout << v[c1] << " ";
+			c1++;
+		}
+		else
+		{
+			cout << v[c2]<<" ";
+			c2--;
+		}
+	}
+	
+	cout << "\n";
+
+	//system("pause");
+	return 0;
+}
