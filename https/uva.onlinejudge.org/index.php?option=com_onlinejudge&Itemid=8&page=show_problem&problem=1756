@@ -1,0 +1,60 @@
+
+/* -- I Can  &  I Will -- */
+
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <cmath>
+#include <sstream>
+#include <set>
+#include <map>
+#include <queue>
+#include <deque>
+#include <stack>
+#include <vector>
+#include <iomanip>
+#define _CRT_SECURE_NO_WARNINGS
+using namespace std;
+
+int main()
+{
+	std::ios_base::sync_with_stdio(0);
+	cin.tie(NULL);
+	cout.tie(NULL);
+
+	string s;
+	set<string>x;
+	while (cin >> s)
+	{
+		string a = "";
+
+		for (int i = 0; i < s.size(); i++)
+		{
+			if (s[i] >= 'A'&&s[i] <= 'Z')
+				s[i] += 32;
+
+			if (s[i] >= 'a'&&s[i] <= 'z')
+			{
+				a += s[i];
+			}
+			else
+			{
+				x.insert(a);
+				a = "";
+			}
+
+		}
+		
+		x.insert(a);
+	}
+
+	set<string>::iterator it;
+
+	for (it = x.begin(); it != x.end(); it++)
+	{
+		if (*it != "")
+			cout << *it << "\n";
+    }
+	//system("pause");
+	return 0;
+}
