@@ -1,0 +1,68 @@
+
+/* -- I Can  &  I Will -- */
+
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <cmath>
+#include <sstream>
+#include <set>
+#include <map>
+#include <queue>
+#include <deque>
+#include <stack>
+#include <vector>
+#include <iomanip>
+using namespace std;
+
+int main()
+{
+	std::ios_base::sync_with_stdio(0);
+	cin.tie(NULL);
+	cout.tie(NULL);
+
+	int n;
+	while (cin >> n && n)
+	{
+
+
+		if (n == 1)
+		{
+			cout << "Discarded cards:\n";
+			cout << "Remaining card: " << n << "\n";
+		}
+		else
+		{
+			queue<int>s;
+
+			for (int i = 1; i <= n; i++)
+			{
+				s.push(i);
+			}
+			cout << "Discarded cards: ";
+			while (true)
+			{
+				if (s.size() == 2)
+				{
+					cout << s.front() << "\n";
+					s.pop();
+					cout << "Remaining card: " << s.front() << "\n";
+					break;
+
+				}
+				else
+				{
+					cout << s.front() << ", ";
+					s.pop();
+					int x = s.front();
+					s.push(x);
+					s.pop();
+				}
+			}
+		}
+	}
+
+
+	
+	return 0;
+}
