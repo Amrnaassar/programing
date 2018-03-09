@@ -1,0 +1,88 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <cmath>
+#include <sstream>
+#include <set>
+#include <map>
+#include <queue>
+#include <deque>
+#include <stack>
+#include <vector>
+#include <iomanip>
+using namespace std;
+string binary(long long n)
+{
+	string s = "";
+	int r;
+	while (n)
+	{
+		r = n % 2;
+		s += r + '0';
+		n /= 2;
+	}
+	return s;
+}
+
+long long decimal(string x)
+{
+	long long  f = 0, p = 1; 
+
+	for (int i = 0; i < (int)x.size(); i++)
+	{
+		f += (x[i] - '0')*p;
+		p *= 2;
+		
+	}
+	return f;
+}
+
+int main()
+{
+	std::ios_base::sync_with_stdio(0);
+	cin.tie(NULL);
+	cout.tie(NULL);
+
+	long long n;
+
+	while (cin >> n && n)
+	{
+		string s = binary(n), a = "", b = "";
+
+
+		int c = 0;
+		for (int i = 0; i < s.size(); i++)
+		{
+			if (s[i] == '1')
+				c++;
+
+			if (s[i] == '1'&&c % 2 == 0)
+
+			{
+				b += s[i];
+				a += '0';
+
+			}
+			else if (s[i] == '1'&& c % 2 != 0)
+			{
+				a += s[i];
+				b += '0';
+
+
+			}
+			else
+			{
+				a += '0';
+				b += '0';
+
+			}
+		}
+
+		cout << decimal(a) << " " << decimal(b) << "\n";
+
+	}
+
+	
+	//system("pause");
+	return 0;
+}
