@@ -1,0 +1,49 @@
+
+/* -- I Can  &  I Will -- */
+
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <cmath>
+#include <sstream>
+#include <set>
+#include <map>
+#include <queue>
+#include <deque>
+#include <stack>
+#include <vector>
+#include <iomanip>
+using namespace std;
+
+int main()
+{
+	std::ios_base::sync_with_stdio(0);
+	cin.tie(NULL);
+	cout.tie(NULL);
+
+	int n, m;
+	while (cin >> n >> m && n&&m)
+	{
+		int c = 0, x, a;
+		int arr[10000000]{ 0 };
+		for (int i = 0; i < n; i++)
+		{
+			cin >> x;
+			arr[x]++;
+		}
+		for (int i = 0; i < m; i++)
+		{
+			cin >> x;
+		
+			if (arr[x] > 0)
+				c++;
+		}
+
+		cout << c << "\n";
+	}
+
+
+
+	//system("pause");
+	return 0;
+}
