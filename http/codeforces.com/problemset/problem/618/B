@@ -1,0 +1,55 @@
+
+/* -- I Can  &  I Will -- */
+
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <cmath>
+#include <sstream>
+#include <set>
+#include <map>
+#include <queue>
+#include <deque>
+#include <stack>
+#include <vector>
+#include <iomanip>
+using namespace std;
+
+int main()
+{
+	std::ios_base::sync_with_stdio(0);
+	cin.tie(NULL);
+	cout.tie(NULL);
+
+	int n,arr[60][60],mx=INT_MIN;
+	bool x = false;
+	cin >> n;
+
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < n; j++)
+			cin >> arr[i][j];
+	}
+
+	for (int i = 0; i < n; i++)
+	{
+		mx = INT_MIN;
+		for (int j = 0; j < n; j++)
+		{
+			if (mx < arr[i][j])
+				mx = arr[i][j];
+		}
+
+		if (mx == n - 1 && x == false)
+		{
+			cout << mx + 1 << " ";
+			x = true;
+		}
+		else
+			cout << mx << " ";
+	}
+	cout << "\n";
+	//system("pause");
+	return 0;
+
+}
