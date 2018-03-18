@@ -1,0 +1,96 @@
+
+/*_*  I Can  &  I Will  *_*/
+
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <cmath>
+#include <sstream>
+#include <set>
+#include <bitset>
+#include <map>
+#include <queue>
+#include <deque>
+#include <stack>
+#include <vector>
+#include <iomanip>
+using namespace std;
+void NasSaR()
+{
+	std::ios_base::sync_with_stdio(0);
+	cin.tie(NULL);
+	cout.tie(NULL);
+}
+int arr[100000];
+int main()
+{
+	NasSaR();
+
+	int n;
+	while (cin >> n )
+	{
+		stack<int >s;
+		queue<int>q;
+		priority_queue<int>pq;
+
+		int st = 0, qu = 0, pqu = 0,x,y;
+		bool t = 0;
+
+		for (int i = 0; i < n; i++)
+		{
+			
+			cin >> x >> y;
+
+			if (x == 1)
+			{
+				s.push(y);
+				q.push(y);
+				pq.push(y);
+			}
+			else
+			{
+				bool f = 0;
+
+				if (s.size() && s.top() == y)
+				{
+					st++;
+					s.pop();
+					f = 1;
+				}
+				if (pq.size() && pq.top() == y)
+				{
+					pqu++;
+					pq.pop();
+					f = 1;
+				}
+				if (q.size() && q.front() == y)
+				{
+					qu++;
+					q.pop();
+					f = 1;
+				}
+				if (f == 0)
+					t = 1;
+
+			}
+
+		}
+
+		if (t)
+		{
+			cout << "impossible" << endl;
+			continue;
+		}
+		
+		else if (st > qu &&st > pqu)
+			cout << "stack" << endl;
+		else if (qu > st&&qu > pqu)
+			cout << "queue" << endl;
+		else if (pqu > qu&&pqu > st)
+			cout << "priority queue" << endl;
+		else 
+			cout << "not sure" << endl;
+	}
+	//system("pause");
+	return 0;
+}
