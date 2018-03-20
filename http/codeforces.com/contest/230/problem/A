@@ -1,0 +1,55 @@
+
+/*_*  I Can  &  I Will  *_*/
+
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <cmath>
+#include <sstream>
+#include <set>
+#include <bitset>
+#include <map>
+#include <queue>
+#include <deque>
+#include <stack>
+#include <vector>
+#include <iomanip>
+using namespace std;
+void NasSaR()
+{
+	std::ios_base::sync_with_stdio(0);
+	cin.tie(NULL);
+	cout.tie(NULL);
+}
+int arr[100000];
+int main()
+{
+	NasSaR();
+	int s, n;
+	pair<int, int>arr[10001];
+	cin >> s >> n;
+	
+
+	for (int i = 0; i < n; i++)
+		cin >> arr[i].first >> arr[i].second;
+
+	sort(arr, arr + n);
+
+	for (int i = 0; i < n; i++)
+	{
+		if (s > arr[i].first)
+		{
+			s += arr[i].second;
+		}
+		else
+		{
+			cout << "NO" << "\n";
+		
+			return 0;
+		}
+	}
+
+	cout << "YES" << "\n";
+
+	return 0;
+}
